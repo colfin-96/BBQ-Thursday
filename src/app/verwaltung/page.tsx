@@ -5,6 +5,12 @@ import { InventoryItem, Order } from '@/lib/types';
 import { PRODUCTS, pricePerUnit } from '@/lib/products';
 import { formatPrice, formatDateTime } from '@/lib/format';
 
+function stockClassName(available: number): string {
+  if (available === 0) return 'text-red-500 font-semibold';
+  if (available <= 3) return 'text-amber-500 font-semibold';
+  return 'text-green-600 font-semibold';
+}
+
 export default function VerwaltungPage() {
   const [inventory, setInventory] = useState<InventoryItem[]>([]);
   const [orders, setOrders] = useState<Order[]>([]);
@@ -111,7 +117,7 @@ export default function VerwaltungPage() {
                     <td className="py-3 pr-4">{product.unitsPerPackage}</td>
                     <td className="py-3 pr-4">{formatPrice(unitPrice)}</td>
                     <td className="py-3 pr-4">
-                      <span className={available === 0 ? 'text-red-500 font-semibold' : available <= 3 ? 'text-amber-500 font-semibold' : 'text-green-600 font-semibold'}>
+                      <span className={stockClassName(available)}>
                         {available}
                       </span>
                     </td>
