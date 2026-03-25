@@ -4,9 +4,10 @@ import { readOrders } from '@/lib/storage';
 import { getProduct, pricePerUnit } from '@/lib/products';
 import { formatPrice, formatDateTime } from '@/lib/format';
 
-export default function BestellungPage({ params }: { params: { id: string } }) {
+export default async function BestellungPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const orders = readOrders();
-  const order = orders.find((o) => o.id === params.id);
+  const order = orders.find((o) => o.id === id);
   if (!order) notFound();
 
   const paypalLink = process.env.NEXT_PUBLIC_PAYPAL_LINK ?? '#';
