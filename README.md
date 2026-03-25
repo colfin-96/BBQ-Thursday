@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BBQ Thursday – Bestellportal 🔥
+
+A Next.js 14 order portal for BBQ Thursday events. Employees can order grilled goods in advance; admins manage inventory and track payments.
+
+## Features
+
+- **Order form** (`/`) – product selection with quantity picker, live total, inventory-aware
+- **Order confirmation** (`/bestellung/[id]`) – order summary with PayPal payment button
+- **Admin panel** (`/verwaltung`) – inventory management, order overview, mark-as-paid
+
+## Products
+
+| Product | Package Price | Units/Package |
+|---------|--------------|---------------|
+| Bratwurst | €5.99 | 10 |
+| Vegane Wurst | €7.99 | 10 |
+| Nackensteak | €9.99 | 5 |
+| Putensteak | €8.99 | 5 |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the order form.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file:
 
-## Learn More
+```
+NEXT_PUBLIC_PAYPAL_LINK=https://paypal.me/your-username
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js 14](https://nextjs.org/) App Router
+- TypeScript
+- Tailwind CSS
+- JSON file storage (`data/orders.json`, `data/inventory.json`)
+- System fonts (no external font requests required)

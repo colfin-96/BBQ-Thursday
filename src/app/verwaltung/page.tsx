@@ -1,12 +1,9 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Product, InventoryItem, Order } from '@/lib/types';
-import { PRODUCTS } from '@/lib/products';
-
-function formatPrice(euros: number): string {
-  return euros.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-}
+import { InventoryItem, Order } from '@/lib/types';
+import { PRODUCTS, pricePerUnit } from '@/lib/products';
+import { formatPrice } from '@/lib/format';
 
 function formatDateTime(isoString: string): string {
   return new Date(isoString).toLocaleString('de-DE', {
@@ -37,10 +34,6 @@ export default function VerwaltungPage() {
 
   function getAvailable(productId: string): number {
     return inventory.find((i) => i.productId === productId)?.availableUnits ?? 0;
-  }
-
-  function pricePerUnit(product: Product): number {
-    return product.pricePerPackage / product.unitsPerPackage;
   }
 
   async function addPackages(productId: string) {

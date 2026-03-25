@@ -2,12 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Product, InventoryItem } from '@/lib/types';
-import { PRODUCTS } from '@/lib/products';
-
-function formatPrice(euros: number): string {
-  return euros.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-}
+import { InventoryItem } from '@/lib/types';
+import { PRODUCTS, pricePerUnit } from '@/lib/products';
+import { formatPrice } from '@/lib/format';
 
 export default function BestellFormular() {
   const router = useRouter();
@@ -27,10 +24,6 @@ export default function BestellFormular() {
 
   function getAvailable(productId: string): number {
     return inventory.find((i) => i.productId === productId)?.availableUnits ?? 0;
-  }
-
-  function pricePerUnit(product: Product): number {
-    return product.pricePerPackage / product.unitsPerPackage;
   }
 
   function total(): number {
