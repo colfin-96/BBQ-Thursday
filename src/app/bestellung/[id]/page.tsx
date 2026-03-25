@@ -67,7 +67,7 @@ export default function BestellungPage({ params }: { params: { id: string } }) {
         <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-6 text-center space-y-3">
           <p className="text-gray-700 font-medium">Bitte überweise <strong>{formatPrice(order.totalEuros)}</strong> via PayPal:</p>
           <a
-            href={`${paypalLink}/${order.totalEuros}`}
+            href={paypalLink}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#0070ba] hover:bg-[#005ea6] text-white font-bold py-3 px-8 rounded-xl transition-colors"

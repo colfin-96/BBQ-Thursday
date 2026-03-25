@@ -3,14 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { InventoryItem, Order } from '@/lib/types';
 import { PRODUCTS, pricePerUnit } from '@/lib/products';
-import { formatPrice } from '@/lib/format';
-
-function formatDateTime(isoString: string): string {
-  return new Date(isoString).toLocaleString('de-DE', {
-    day: '2-digit', month: '2-digit', year: 'numeric',
-    hour: '2-digit', minute: '2-digit',
-  });
-}
+import { formatPrice, formatDateTime } from '@/lib/format';
 
 export default function VerwaltungPage() {
   const [inventory, setInventory] = useState<InventoryItem[]>([]);
