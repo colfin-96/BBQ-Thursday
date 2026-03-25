@@ -1,0 +1,20 @@
+[
+  {
+    "id": "3b2742fa-946b-4b76-9570-35b00ac98f9a",
+    "customerName": "Max Mustermann",
+    "customerEmail": "max@beispiel.de",
+    "items": [
+      {
+        "productId": "bratwurst",
+        "quantity": 1
+      },
+      {
+        "productId": "nackensteak",
+        "quantity": 1
+      }
+    ],
+    "totalEuros": 2.6,
+    "createdAt": "2026-03-25T13:06:38.709Z",
+    "status": "pending"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "productId": "bratwurst",
+    "availableUnits": 9
+  },
+  {
+    "productId": "vegane-wurst",
+    "availableUnits": 0
+  },
+  {
+    "productId": "nackensteak",
+    "availableUnits": 4
+  },
+  {
+    "productId": "putensteak",
+    "availableUnits": 0
+  }
+]
